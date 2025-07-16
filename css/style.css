@@ -1,0 +1,286 @@
+/* --- Base Styles --- */
+:root {
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --primary-color: #007bff; /* A nice blue */
+    --secondary-color: #6c757d; /* Grey for subtle elements */
+    --highlight-color: #28a745; /* A vibrant green for highlights */
+    --navbar-bg: #ffffff;
+    --footer-bg: #e9ecef;
+    --box-shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #212529;
+    --text-color: #e9ecef;
+    --primary-color: #66b8ff; /* Lighter blue for dark theme */
+    --secondary-color: #adb5bd;
+    --highlight-color: #28a745; /* Can keep same or adjust */
+    --navbar-bg: #2b3035;
+    --footer-bg: #343a40;
+    --box-shadow: rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header & Navbar --- */
+header {
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 10px var(--box-shadow);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Space between links */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after { /* Add active class styling later if needed */
+    width: 100%;
+}
+
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.2s ease;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+    background-color: rgba(0,0,0,0.05); /* Light hover effect */
+}
+
+/* Hamburger Menu Icon */
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* --- Main Content --- */
+main.home {
+    flex-grow: 1; /* Allows main to take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 20px; /* Increased padding for better spacing */
+}
+
+main.home h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+main.home p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+.highlight {
+    color: var(--highlight-color);
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade of primary */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1.5rem 20px;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px var(--box-shadow);
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For screens smaller than 768px (common tablet/mobile breakpoint) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: space-between;
+    }
+
+    .navbar .logo {
+        height: 35px; /* Slightly smaller logo on mobile */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--navbar-bg);
+        box-shadow: 0 5px 10px var(--box-shadow);
+        position: absolute;
+        top: 70px; /* Below the navbar */
+        left: 0;
+        right: 0;
+        transform: translateY(-150%); /* Hide by default */
+        transition: transform 0.3s ease-in-out;
+        padding: 20px 0;
+        z-index: 999; /* Ensure it's above other content but below header */
+    }
+
+    .nav-links.active {
+        transform: translateY(0); /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links li a {
+        font-size: 1.1rem;
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger menu */
+        margin-right: 15px; /* Space between toggle and theme button */
+    }
+
+    #themeToggle {
+        order: 1; /* Position theme toggle at the end of the flex container */
+    }
+
+    main.home {
+        padding: 3rem 15px;
+    }
+
+    main.home h1 {
+        font-size: 2.5rem; /* Smaller heading for mobile */
+    }
+
+    main.home p {
+        font-size: 1rem; /* Smaller paragraph for mobile */
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* For even smaller screens (e.g., small phones) */
+@media (max-width: 480px) {
+    main.home h1 {
+        font-size: 2rem;
+    }
+
+    main.home p {
+        font-size: 0.9rem;
+    }
+}
