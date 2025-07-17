@@ -1,3 +1,139 @@
+/* --- Base Styles (Existing) --- */
+:root {
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --highlight-color: #28a745;
+    --navbar-bg: #ffffff;
+    --footer-bg: #e9ecef;
+    --box-shadow: rgba(0, 0, 0, 0.08);
+    --hero-overlay-color: rgba(0, 0, 0, 0.65); /* Slightly darker overlay for better text contrast over logo */
+    --hero-text-color: #ffffff;
+}
+
+/* Dark theme variables (Existing) */
+[data-theme="dark"] {
+    --background-color: #212529;
+    --text-color: #e9ecef;
+    --primary-color: #66b8ff;
+    --secondary-color: #adb5bd;
+    --highlight-color: #28a745;
+    --navbar-bg: #2b3035;
+    --footer-bg: #343a40;
+    --box-shadow: rgba(0, 0, 0, 0.4);
+    --hero-overlay-color: rgba(0, 0, 0, 0.75); /* Even darker overlay for dark theme */
+    --hero-text-color: #ffffff;
+}
+
+/* ... (Existing global styles like *, body, header, navbar, etc.) ... */
+
+
+/* --- Main Content (Home Page - Hero Section) --- */
+main.home {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 20px;
+    min-height: 80vh; 
+
+    /* Hero Background Properties - MODIFIED */
+    background: 
+        linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)), /* Overlay for readability */
+        url('../assets/reads-logo.png') no-repeat center center / contain; /* CHANGED IMAGE AND SIZE */
+    color: var(--hero-text-color); 
+    position: relative; 
+    overflow: hidden; 
+}
+
+main.home h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1rem;
+    color: var(--hero-text-color); 
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Slightly stronger text shadow */
+}
+
+main.home p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+    color: var(--hero-text-color); 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Slightly stronger text shadow */
+}
+
+.highlight {
+    color: var(--highlight-color); 
+    font-weight: 700;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+    border: 2px solid var(--primary-color); 
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+}
+
+/* ... (Existing footer, content-page, features-page, token-info-card, contact-methods, etc.) ... */
+
+/* --- Media Queries for Responsiveness (Existing + Adjustments for Hero) --- */
+
+/* For screens smaller than 768px (common tablet/mobile breakpoint) */
+@media (max-width: 768px) {
+    /* ... (Existing navbar, nav-links, menu-toggle styles) ... */
+
+    main.home {
+        padding: 4rem 15px; 
+        min-height: 70vh; 
+    }
+
+    main.home h1 {
+        font-size: 2.8rem; 
+    }
+
+    main.home p {
+        font-size: 1.2rem; 
+        max-width: 90%;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+
+    /* ... (Other media query styles for content-page, features-grid etc.) ... */
+}
+
+/* For even smaller screens (e.g., small phones) */
+@media (max-width: 480px) {
+    main.home {
+        padding: 3rem 10px;
+        min-height: 60vh;
+    }
+
+    main.home h1 {
+        font-size: 2rem;
+    }
+
+    main.home p {
+        font-size: 1rem;
+    }
+}
 /* --- Base Styles --- */
 :root {
     --background-color: #f8f9fa;
