@@ -11,7 +11,17 @@
 <body>
   <header>
     <nav class="navbar">
-      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" /><b>$READS</b>
+      <div class="menu-toggle" id="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
+      <div class="theme-switch-wrapper"> <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" />
+          <div class="slider round"></div>
+        </label>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -19,15 +29,8 @@
         <li><a href="token.html">Token</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <button id="themeToggle">🌙</button>
-    </nav>
+      </nav>
   </header>
-
   <main class="home">
     <h1>Welcome to <span class="highlight">$READS</span></h1>
     <p>The educational token revolutionizing how you study, earn, and grow.</p>
