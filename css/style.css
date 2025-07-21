@@ -57,92 +57,33 @@ body {
 
 /* --- Header & Navbar --- */
 header {
-    background-color: var(--navbar-bg); /* Use the general navbar background */
+    background-color: var(--navbar-bg);
     box-shadow: 0 2px 10px var(--box-shadow);
-    padding: 0; /* No direct padding on header */
+    /* Remove padding from here, it will be on the .navbar */
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Removed .top-stripe as it's not in this design */
-
 .navbar {
     display: flex;
-    justify-content: space-between; /* Space out items */
+    justify-content: space-between; /* This will push items to ends */
     align-items: center;
-    max-width: 1200px; /* Still constrain content width */
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 20px; /* Padding for header content */
-    min-height: 70px; /* Standard height for header */
-    position: relative; /* Needed for logo centering */
+    padding: 1rem 20px; /* Consistent padding top/bottom and sides */
+    min-height: 70px; /* Ensures a consistent height */
+    position: relative; /* Crucial for absolute positioning of the logo */
 }
 
 /* --- Logo Styling --- */
 .navbar .logo {
     height: 40px; /* Adjust size to match example */
     width: auto;
-    position: absolute; /* Position logo absolutely to center it */
+    position: absolute; /* Position logo absolutely to center it within .navbar */
     left: 50%;
     transform: translateX(-50%);
     z-index: 1; /* Ensure it's above other elements if they overlap */
-}
-
-/* --- Navigation Links (for mobile dropdown) --- */
-.nav-links {
-    list-style: none;
-    display: none; /* Hidden by default on desktop, revealed by JS */
-    /* Mobile styles will make it active */
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: var(--navbar-bg);
-    box-shadow: 0 5px 10px var(--box-shadow);
-    position: absolute;
-    top: 70px; /* Position below the header */
-    left: 0;
-    right: 0;
-    transform: translateY(-150%); /* Start off-screen */
-    transition: transform 0.3s ease-in-out;
-    padding: 20px 0;
-    z-index: 999;
-}
-
-.nav-links.active {
-    transform: translateY(0); /* Slide in */
-}
-
-.nav-links li {
-    margin: 10px 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease-in-out;
-}
-
-.nav-links li a:hover {
-    color: var(--primary-color);
-}
-
-.nav-links li a:hover::after,
-.nav-links li a.active::after {
-    width: 100%;
 }
 
 /* --- Hamburger Menu Icon (Left Aligned) --- */
@@ -153,115 +94,49 @@ header {
     width: 30px;
     height: 20px;
     cursor: pointer;
-    /* Removed margin-right: auto; as justify-content handles spacing */
-    z-index: 2; /* Ensure it's clickable */
+    /* This will ensure it stays to the left */
+    z-index: 2; /* Ensure it's clickable and on top of logo if needed */
 }
-
-.menu-toggle span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: var(--text-color); /* Dark lines for light theme, light for dark */
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Animation for active (open) state */
-.menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
 
 /* --- Theme Toggle Switch (Right Aligned) --- */
 .theme-switch-wrapper {
-    display: flex; /* Aligns the label horizontally */
+    display: flex;
     align-items: center;
-    justify-content: flex-end; /* Pushes switch to the right */
-    width: 100%; /* Take full width to push itself right */
-    z-index: 2; /* Ensure it's clickable */
+    /* This naturally positions it to the right due to justify-content: space-between on .navbar */
+    z-index: 2; /* Ensure it's clickable and on top of logo if needed */
 }
 
-.theme-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px; /* Width of the switch track */
-    height: 28px; /* Height of the switch track */
-    /* Hide the default checkbox */
-}
-
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
+/* Navigation Links - keep these hidden by default for desktop, controlled by JS for mobile */
+.nav-links {
+    list-style: none;
+    display: none; /* Hidden by default on desktop, revealed by JS */
+    flex-direction: column; /* For mobile dropdown */
+    width: 100%;
+    text-align: center;
+    background-color: var(--navbar-bg);
+    box-shadow: 0 5px 10px var(--box-shadow);
     position: absolute;
-    cursor: pointer;
-    top: 0;
+    top: 70px; /* Position below the header (min-height of navbar) */
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: var(--switch-bg-off);
-    transition: .4s;
+    transform: translateY(-150%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out;
+    padding: 20px 0;
+    z-index: 999;
 }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 20px; /* Size of the slider circle */
-    width: 20px;
-    left: 4px; /* Initial position */
-    bottom: 4px;
-    background-color: var(--switch-slider-color);
-    transition: .4s;
-    /* Moon icon: (if you want an actual moon icon, you'd use a background image or SVG) */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M12 3a9 9 0 1 0 9 9c0-.62-.06-1.23-.17-1.82A6.5 6.5 0 0 1 12 3z"/></svg>');
-    background-size: 80% 80%;
-    background-repeat: no-repeat;
-    background-position: center;
+/* Existing active class for mobile */
+.nav-links.active {
+    transform: translateY(0); /* Slide in */
 }
 
-input:checked + .slider {
-    background-color: var(--switch-bg-on);
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--switch-bg-on);
-}
-
-input:checked + .slider:before {
-    transform: translateX(22px); /* Move slider to the right (50-28+4 = 22) */
-    /* Sun icon: */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fff"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 20h2v3h-2v-3zM3.56 4.93l1.41-1.41 2.12 2.12-1.41 1.41zm14.85 14.85-1.41 1.41-2.12-2.12 1.41-1.41zm-1.41-14.85l2.12 2.12 1.41-1.41-2.12-2.12zM3.56 19.07l2.12-2.12 1.41 1.41-2.12 2.12zM0 11h3v2H0v-2zm21 0h3v2h-3v-2z"/></svg>');
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 28px; /* Half of height */
-}
-
-.slider.round:before {
-    border-radius: 50%; /* Make circular */
-}
-
-/* --- Main Content (Homepage - .home class) --- */
-/* ... (Keep your main.home styles as they are, no changes needed here) ... */
-
-
-/* --- Media Queries for Responsiveness --- */
+/* Media Queries for Responsiveness */
 
 @media (max-width: 768px) {
     .navbar {
         flex-wrap: nowrap; /* Prevent wrapping */
         min-height: 60px; /* Adjust height for mobile */
-        padding: 0.8rem 15px;
+        padding: 0.8rem 15px; /* Adjust padding for mobile */
     }
 
     .navbar .logo {
@@ -271,33 +146,31 @@ input:checked + .slider:before {
     }
 
     .menu-toggle {
-        display: flex; /* Ensure visible */
+        display: flex; /* Ensure visible on mobile */
     }
 
     /* Theme switch adjustment for mobile */
     .theme-switch {
-        width: 40px;
-        height: 24px;
+        width: 50px; /* Keep original size for better tap target */
+        height: 28px; /* Keep original size */
     }
     .slider:before {
-        height: 16px;
-        width: 16px;
-        left: 3px;
-        bottom: 3px;
+        height: 20px; /* Keep original size */
+        width: 20px; /* Keep original size */
+        left: 4px;
+        bottom: 4px;
     }
     input:checked + .slider:before {
-        transform: translateX(16px); /* Adjusted for smaller switch */
+        transform: translateX(22px); /* Adjusted for correct original size */
     }
     .slider.round {
-        border-radius: 24px;
+        border-radius: 28px;
     }
 
     /* Original nav-links are handled by active class for mobile */
     .nav-links {
         top: 60px; /* Adjust position for mobile header height */
     }
-
-    /* ... (rest of your media queries for main content, footer, etc.) ... */
 }
 
 @media (max-width: 480px) {
@@ -308,8 +181,8 @@ input:checked + .slider:before {
     .navbar .logo {
         height: 30px;
     }
-    /* Theme switch already adjusted in 768px media query, no further changes usually needed unless very specific */
 }
+
 
 /* --- Base Styles --- */
 :root {
