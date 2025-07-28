@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Features | $READS</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <script src="js/script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" /><b>$READS</b>
+      <div class="menu-toggle" id="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -18,54 +34,71 @@
         <li><a href="token.html">Token</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <button id="themeToggle">🌙</button>
     </nav>
   </header>
 
-  <main class="features-page">
-    <h1><span class="highlight">Features</span> of $READS</h1>
+  <main class="content-page"> <h1 data-aos="fade-up"><span class="highlight">Features</span> of $READS</h1>
 
-    <div class="features-grid">
-      <div class="feature-item" data-aos="fade-up">
-        <h3>📚 Learn-to-Earn</h3>
-        <p>Users study educational content and earn $READS tokens after passing short tests, turning learning into a rewarding experience.</p>
-      </div>
+    <section class="features-intro-section">
+      <p data-aos="fade-up" data-aos-delay="100">
+        $READS offers a comprehensive suite of features designed to make learning engaging, effective, and rewarding. Our platform integrates cutting-edge technology with robust educational tools to empower learners worldwide.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Discover how $READS is transforming the educational landscape:
+      </p>
+    </section>
 
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-        <h3>🧪 CBT Exams</h3>
-        <p>Practice for JAMB, WAEC, SAT, IELTS, and more with our comprehensive computer-based testing platform, helping you prepare for success.</p>
-      </div>
+    <div class="features-grid-section"> <h2 data-aos="fade-right">Core Offerings</h2> <div class="features-grid">
+        <div class="feature-item" data-aos="fade-up">
+          <h3>📚 Learn-to-Earn Rewards</h3>
+          <p>Immerse yourself in curated educational content across various subjects. Successfully complete interactive modules and pass short assessments to earn valuable $READS tokens, directly converting your learning effort into tangible assets.</p>
+        </div>
 
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-        <h3>🎓 Certification</h3>
-        <p>Earn verifiable blockchain-issued certificates upon successfully completing study programs and courses, proving your achievements.</p>
-      </div>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+          <h3>🧪 Comprehensive CBT Exams</h3>
+          <p>Prepare thoroughly for critical national and international examinations like JAMB, WAEC, SAT, IELTS, and more. Our advanced computer-based testing (CBT) platform simulates real exam environments, providing detailed performance analytics to highlight areas for improvement.</p>
+        </div>
 
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-        <h3>💰 Freemium & Premium</h3>
-        <p>Free users earn standard rewards for their efforts, while premium users enjoy enhanced benefits, including double $READS token earnings.</p>
-      </div>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+          <h3>🎓 Blockchain-Issued Certification</h3>
+          <p>Gain verifiable recognition for your academic achievements. Upon successfully completing study programs and courses, you'll receive blockchain-secured certificates, providing an immutable and globally recognizable proof of your skills and knowledge.</p>
+        </div>
 
-      <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-        <h3>🏫 Exam Fee Payment</h3>
-        <p>Conveniently use your earned $READS tokens to register for national and international examinations through our network of partner schools.</p>
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+          <h3>💰 Flexible Freemium & Premium Access</h3>
+          <p>Start your learning journey for free and earn standard $READS rewards. For an accelerated path, upgrade to our premium membership to unlock enhanced benefits, including double $READS token earnings, exclusive content, and advanced features.</p>
+        </div>
+
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+          <h3>🏫 Seamless Exam Fee Payments</h3>
+          <p>Utilize your earned $READS tokens to conveniently register for major national and international examinations. We've established a secure network of partner schools and institutions to facilitate direct payment of exam fees, simplifying your path to certification.</p>
+        </div>
+
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+            <h3>🌐 Global Community & Support</h3>
+            <p>Join a thriving community of learners and educators from around the world. Connect with peers, participate in study groups, and access dedicated support channels to enhance your learning experience and share insights.</p>
+        </div>
+
+        <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
+            <h3>📈 Performance Analytics</h3>
+            <p>Track your progress with detailed performance dashboards. Monitor your learning streaks, test scores, token earnings, and identify strengths and weaknesses to optimize your study strategy.</p>
+        </div>
       </div>
     </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 $READS TECHNOLOGIES</br>
-    All rights reserved.</br>
+    <p>&copy; 2025 $READS. All rights reserved.</br>
     <b>$READS... Empowering You To Study Smart</b></p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
-    AOS.init(); // Initialize AOS
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true, // Animations only once
+      mirror: false, // Animations repeat on scroll up
+    });
   </script>
 </body>
 </html>

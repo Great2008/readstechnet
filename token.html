@@ -5,50 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Token | $READS</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" /><b>$READS</b>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="token.html" class="active">Token</a></li> <li><a href="contact.html">Contact</a></li>
-      </ul>
       <div class="menu-toggle" id="mobileMenu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <button id="themeToggle">🌙</button>
+
+      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="token.html" class="active">Token</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="content-page"> <h1>About the <span class="highlight">$READS</span> Token</h1>
+  <main class="content-page">
+    <h1 data-aos="fade-up">About the <span class="highlight">$READS</span> Token</h1>
 
-    <div class="token-info-card">
-      <h2>Token Details</h2>
-      <p><strong>Blockchain:</strong> Ethereum (ERC-20)</p>
-      <p><strong>Total Supply:</strong> 100,000,000 $READS</p>
-    </div>
+    <section class="token-overview-section">
+      <p data-aos="fade-up" data-aos-delay="100">
+        The $READS token is the backbone of our educational ecosystem. Students are empowered to earn tokens for their dedication to learning, successfully completing tests, and active participation in various educational activities on our platform.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="200">
+        These earned tokens hold significant utility within the $READS community. They can be seamlessly used to register for national and international examinations, unlock exclusive premium content, access advanced study materials, and much more, providing a tangible reward for academic growth.
+      </p>
+      <p class="note-text" data-aos="fade-up" data-aos-delay="300">
+        Please note: USSD is currently used for transaction processing within our ecosystem, not for direct token earning.
+      </p>
+    </section>
 
-    <p>
-      The $READS token is the backbone of our educational ecosystem. Students are empowered to earn tokens for their dedication to learning, successfully completing tests, and active participation in various educational activities on our platform.
-    </p>
-    <p>
-      These earned tokens hold significant utility within the $READS community. They can be seamlessly used to register for national and international examinations, unlock exclusive premium content, access advanced study materials, and much more, providing a tangible reward for academic growth.
-    </p>
-    <p class="note-text">
-      Please note: USSD is currently used for transaction processing within our ecosystem, not for direct token earning.
-    </p>
+    <section class="token-details-section">
+        <h2 data-aos="fade-right">Token Key Information</h2>
+        <div class="token-info-card" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Token Details</h3>
+            <p><strong>Blockchain:</strong> Ethereum (ERC-20)</p>
+            <p><strong>Token Symbol:</strong> $READS</p>
+            <p><strong>Total Supply:</strong> 100,000,000 $READS</p>
+            <p><strong>Smart Contract Address:</strong> <code>Coming Soon</code></p>
+        </div>
+        <div class="token-info-card" data-aos="zoom-in" data-aos-delay="200">
+            <h3>Utility & Use Cases</h3>
+            <ul>
+                <li>Access to Premium Educational Content</li>
+                <li>Registration for Exams (National & International)</li>
+                <li>In-platform Purchases & Upgrades</li>
+                <li>Exclusive Community Features</li>
+                <li>Governance (Future Development)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="tokenomics-section">
+        <h2 data-aos="fade-up">Tokenomics & Distribution</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+            The $READS token distribution is designed to ensure a fair and sustainable ecosystem, prioritizing community growth and platform development. Our allocation strategy supports long-term value and incentivizes active participation.
+        </p>
+        <div class="distribution-grid">
+            <div class="distribution-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>50% - Learn-to-Earn Rewards</h3>
+                <p>Dedicated to incentivizing students for their academic achievements and engagement on the platform.</p>
+            </div>
+            <div class="distribution-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>20% - Ecosystem Development</h3>
+                <p>Funds for platform upgrades, new features, content creation, and infrastructure maintenance.</p>
+            </div>
+            <div class="distribution-item" data-aos="fade-up" data-aos-delay="400">
+                <h3>15% - Marketing & Partnerships</h3>
+                <p>For community building, global outreach, and strategic collaborations to expand the $READS ecosystem.</p>
+            </div>
+            <div class="distribution-item" data-aos="fade-up" data-aos-delay="500">
+                <h3>10% - Team & Advisors</h3>
+                <p>Allocated to retain and reward the core team and expert advisors (with vesting schedules).</p>
+            </div>
+            <div class="distribution-item" data-aos="fade-up" data-aos-delay="600">
+                <h3>5% - Liquidity & Reserves</h3>
+                <p>Ensuring market stability and providing a buffer for unforeseen circumstances.</p>
+            </div>
+        </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2025 $READS TECHNOLOGIES</br>
-    All rights reserved.</br>
+    <p>&copy; 2025 $READS. All rights reserved.</br>
     <b>$READS... Empowering You To Study Smart</b></p>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true, // Animations only once
+      mirror: false, // Animations repeat on scroll up
+    });
+  </script>
 </body>
 </html>
