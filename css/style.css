@@ -1,201 +1,27 @@
-/* --- Base Styles --- */
+/* --- Base Styles (No changes needed here for mobile alignment, but good to keep) --- */
 :root {
     --background-color: #f8f9fa;
     --text-color: #343a40;
-    --primary-color: #007bff; /* A nice blue */
-    --secondary-color: #6c757d; /* Grey for subtle elements */
+    --primary-color: #007bff; /* A nice blue for main elements */
+    --secondary-color: #6c757d; /* Grey for subtle text/elements */
     --highlight-color: #28a745; /* A vibrant green for highlights */
     --navbar-bg: #ffffff; /* White header background */
     --footer-bg: #e9ecef;
     --box-shadow: rgba(0, 0, 0, 0.08);
-    --hero-overlay-color: rgba(0, 0, 0, 0.65);
-    --hero-text-color: #ffffff;
+
+    /* Hero Banner Colors */
+    --hero-overlay-color: rgba(0, 0, 0, 0.65); /* Semi-transparent dark overlay for background images */
+    --hero-text-color: #ffffff; /* Text color for content over background images */
+    --hero-button-bg: #007bff; /* Button color in hero */
+    --hero-button-hover: #0056b3;
 
     /* Theme Toggle Switch Colors */
     --switch-bg-off: #ccc;
-    --switch-bg-on: #2196F3; /* Blue when active */
+    --switch-bg-on: #007bff; /* Blue when active */
     --switch-slider-color: white;
-}
 
-/* Dark theme variables */
-[data-theme="dark"] {
-    --background-color: #212529;
-    --text-color: #e9ecef;
-    --primary-color: #66b8ff;
-    --secondary-color: #adb5bd;
-    --highlight-color: #28a745;
-    --navbar-bg: #2b3035; /* Dark header background */
-    --footer-bg: #343a40;
-    --box-shadow: rgba(0, 0, 0, 0.4);
-    --hero-overlay-color: rgba(0, 0, 0, 0.75);
-    --hero-text-color: #ffffff;
-
-    /* Theme Toggle Switch Colors for Dark Mode */
-    --switch-bg-off: #555;
-    --switch-bg-on: #66b8ff;
-    --switch-slider-color: #f1f1f1;
-}
-
-/* Universal box-sizing and reset default margins/paddings for full width elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-}
-
-/* --- Header & Navbar --- */
-header {
-    background-color: var(--navbar-bg);
-    box-shadow: 0 2px 10px var(--box-shadow);
-    /* Remove padding from here, it will be on the .navbar */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between; /* This will push items to ends */
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 20px; /* Consistent padding top/bottom and sides */
-    min-height: 70px; /* Ensures a consistent height */
-    position: relative; /* Crucial for absolute positioning of the logo */
-}
-
-/* --- Logo Styling --- */
-.navbar .logo {
-    height: 40px; /* Adjust size to match example */
-    width: auto;
-    position: absolute; /* Position logo absolutely to center it within .navbar */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1; /* Ensure it's above other elements if they overlap */
-}
-
-/* --- Hamburger Menu Icon (Left Aligned) --- */
-.menu-toggle {
-    display: flex; /* Always visible for this design */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    /* This will ensure it stays to the left */
-    z-index: 2; /* Ensure it's clickable and on top of logo if needed */
-}
-
-/* --- Theme Toggle Switch (Right Aligned) --- */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    /* This naturally positions it to the right due to justify-content: space-between on .navbar */
-    z-index: 2; /* Ensure it's clickable and on top of logo if needed */
-}
-
-/* Navigation Links - keep these hidden by default for desktop, controlled by JS for mobile */
-.nav-links {
-    list-style: none;
-    display: none; /* Hidden by default on desktop, revealed by JS */
-    flex-direction: column; /* For mobile dropdown */
-    width: 100%;
-    text-align: center;
-    background-color: var(--navbar-bg);
-    box-shadow: 0 5px 10px var(--box-shadow);
-    position: absolute;
-    top: 70px; /* Position below the header (min-height of navbar) */
-    left: 0;
-    right: 0;
-    transform: translateY(-150%); /* Start off-screen */
-    transition: transform 0.3s ease-in-out;
-    padding: 20px 0;
-    z-index: 999;
-}
-
-/* Existing active class for mobile */
-.nav-links.active {
-    transform: translateY(0); /* Slide in */
-}
-
-/* Media Queries for Responsiveness */
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-wrap: nowrap; /* Prevent wrapping */
-        min-height: 60px; /* Adjust height for mobile */
-        padding: 0.8rem 15px; /* Adjust padding for mobile */
-    }
-
-    .navbar .logo {
-        height: 35px; /* Adjust logo size for mobile */
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .menu-toggle {
-        display: flex; /* Ensure visible on mobile */
-    }
-
-    /* Theme switch adjustment for mobile */
-    .theme-switch {
-        width: 50px; /* Keep original size for better tap target */
-        height: 28px; /* Keep original size */
-    }
-    .slider:before {
-        height: 20px; /* Keep original size */
-        width: 20px; /* Keep original size */
-        left: 4px;
-        bottom: 4px;
-    }
-    input:checked + .slider:before {
-        transform: translateX(22px); /* Adjusted for correct original size */
-    }
-    .slider.round {
-        border-radius: 28px;
-    }
-
-    /* Original nav-links are handled by active class for mobile */
-    .nav-links {
-        top: 60px; /* Adjust position for mobile header height */
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 0.6rem 10px;
-        min-height: 55px;
-    }
-    .navbar .logo {
-        height: 30px;
-    }
-}
-
-
-/* --- Base Styles --- */
-:root {
-    --background-color: #f8f9fa;
-    --text-color: #343a40;
-    --primary-color: #007bff; /* A nice blue */
-    --secondary-color: #6c757d; /* Grey for subtle elements */
-    --highlight-color: #28a745; /* A vibrant green for highlights */
-    --navbar-bg: #ffffff;
-    --footer-bg: #e9ecef;
-    --box-shadow: rgba(0, 0, 0, 0.08);
-    --hero-overlay-color: rgba(0, 0, 0, 0.65); /* Semi-transparent dark overlay for background images */
-    --hero-text-color: #ffffff; /* Text color for content over background images */
+    /* Text glow effect for banner */
+    --text-glow-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Dark theme variables */
@@ -204,12 +30,24 @@ header {
     --text-color: #e9ecef;
     --primary-color: #66b8ff; /* Lighter blue for dark theme */
     --secondary-color: #adb5bd;
-    --highlight-color: #28a745;
-    --navbar-bg: #2b3035;
+    --highlight-color: #28a745; /* Green remains vibrant */
+    --navbar-bg: #2b3035; /* Dark header background */
     --footer-bg: #343a40;
     --box-shadow: rgba(0, 0, 0, 0.4);
+
+    /* Hero Banner Colors for Dark Theme */
     --hero-overlay-color: rgba(0, 0, 0, 0.75);
     --hero-text-color: #ffffff;
+    --hero-button-bg: #66b8ff;
+    --hero-button-hover: #3a8ee0;
+
+    /* Theme Toggle Switch Colors for Dark Mode */
+    --switch-bg-off: #555;
+    --switch-bg-on: #66b8ff;
+    --switch-slider-color: #f1f1f1;
+
+    /* Text glow effect for banner in dark mode */
+    --text-glow-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Universal box-sizing and reset default margins/paddings for full width elements */
@@ -220,7 +58,7 @@ header {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', sans-serif; /* Using Inter font */
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
@@ -228,15 +66,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* Important: Hide horizontal scrollbar that might appear if width exceeds viewport */
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
 /* --- Header & Navbar --- */
 header {
     background-color: var(--navbar-bg);
     box-shadow: 0 2px 10px var(--box-shadow);
-    padding: 1rem 0;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -244,22 +81,57 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
+    justify-content: space-between; /* Space out hamburger and switch */
+    align-items: center; /* Vertically align all direct children */
+    max-width: 1200px; /* Constrain content width */
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 1rem 20px; /* Padding for header content */
+    min-height: 70px; /* Standard height */
+    position: relative; /* Needed for logo centering */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
 }
 
+/* --- Logo Styling --- */
 .navbar .logo {
-    height: 40px;
+    height: 40px; /* Adjust size */
     width: auto;
+    position: absolute; /* Absolute positioning for perfect centering */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure it's above other elements if they overlap */
+    margin: 0; /* Override any default margins */
 }
 
+/* --- Navigation Links (for mobile dropdown) --- */
 .nav-links {
     list-style: none;
-    display: flex;
-    gap: 25px; /* Space between links */
+    display: flex; /* Initially flex for desktop if needed, will be hidden by JS */
+    gap: 25px; /* Space between links on desktop */
+    /* Mobile-specific styles applied by JS's 'active' class */
+    flex-direction: column; /* Default for mobile dropdown */
+    width: 100%;
+    text-align: center;
+    background-color: var(--navbar-bg);
+    box-shadow: 0 5px 10px var(--box-shadow);
+    position: absolute;
+    top: 70px; /* Position below the header */
+    left: 0;
+    right: 0;
+    transform: translateY(-150%); /* Start off-screen */
+    transition: transform 0.3s ease-in-out;
+    padding: 20px 0;
+    z-index: 999;
+    /* On desktop, hide it completely as we're using hamburger */
+    display: none;
+}
+
+.nav-links.active {
+    transform: translateY(0); /* Slide in */
+    display: flex; /* Show when active */
+}
+
+.nav-links li {
+    margin: 10px 0; /* Vertical margin for mobile list items */
 }
 
 .nav-links li a {
@@ -291,51 +163,108 @@ header {
     width: 100%;
 }
 
-#themeToggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
-    transition: transform 0.2s ease;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-#themeToggle:hover {
-    transform: scale(1.1);
-    background-color: rgba(0,0,0,0.05); /* Light hover effect */
-}
-
-/* Hamburger Menu Icon */
+/* --- Hamburger Menu Icon (Left Aligned) --- */
 .menu-toggle {
-    display: none; /* Hidden by default on desktop */
+    display: flex; /* Always visible for this design */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 20px;
     cursor: pointer;
+    z-index: 2; /* Ensure it's clickable */
+    margin: 0; /* Override any default margins */
 }
 
 .menu-toggle span {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--text-color); /* Dark lines for light theme, light for dark */
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
 
+/* Animation for active (open) state */
 .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
-
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
 }
-
 .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- Theme Toggle Switch (Right Aligned) --- */
+.theme-switch-wrapper {
+    display: flex; /* Aligns the label horizontally */
+    align-items: center;
+    justify-content: flex-end; /* Pushes switch to the right */
+    z-index: 2; /* Ensure it's clickable */
+    margin: 0; /* Override any default margins */
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Width of the switch track */
+    height: 28px; /* Height of the switch track */
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg-off);
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; /* Size of the slider circle */
+    width: 20px;
+    left: 4px; /* Initial position */
+    bottom: 4px;
+    background-color: var(--switch-slider-color);
+    transition: .4s;
+    /* Moon icon (white fill for dark background) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFFFF"><path d="M12 3a9 9 0 1 0 9 9c0-.62-.06-1.23-.17-1.82A6.5 6.5 0 0 1 12 3z"/></svg>');
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+input:checked + .slider {
+    background-color: var(--switch-bg-on);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--switch-bg-on);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px); /* Move slider to the right */
+    /* Sun icon (white fill for dark background) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFFFFF"><path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 20h2v3h-2v-3zM3.56 4.93l1.41-1.41 2.12 2.12-1.41 1.41zm14.85 14.85-1.41 1.41-2.12-2.12 1.41-1.41zm-1.41-14.85l2.12 2.12 1.41-1.41-2.12-2.12zM3.56 19.07l2.12-2.12 1.41 1.41-2.12 2.12zM0 11h3v2H0v-2zm21 0h3v2h-3v-2z"/></svg>');
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 28px; /* Half of height */
+}
+
+.slider.round:before {
+    border-radius: 50%; /* Make circular */
 }
 
 /* --- Main Content (Homepage - .home class) --- */
@@ -345,31 +274,17 @@ main.home {
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center items horizontally within main.home's content area */
     text-align: center;
-    /* Padding for the "Welcome to $READS" section */
-    padding: 4rem 20px;
-}
-
-main.home h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    line-height: 1.2;
-}
-
-main.home p {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin-bottom: 2rem;
-    color: var(--secondary-color);
+    padding: 0; /* Remove main padding, sections will have their own */
 }
 
 /* --- Coming Soon Banner Section (New for homepage) --- */
 .coming-soon-banner {
-    /* Critical for making it span full width and appear first */
     order: -1; /* This ensures it appears first in the flex container */
-    width: calc(100% + 40px); /* 100% of parent's width + (2 * parent's horizontal padding: 20px * 2 = 40px) */
-    margin-left: -20px; /* Pull it left to counteract parent's left padding */
-    margin-right: -200px; /* Pull it right to counteract parent's right padding */
+    /* Full-width behavior - relies on main.home having no horizontal padding */
+    width: 100vw; /* Use 100vw for full viewport width */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* Center it after 100vw */
 
     display: flex;
     flex-direction: column;
@@ -377,15 +292,15 @@ main.home p {
     align-items: center;
     text-align: center;
     padding: 6rem 20px; /* Internal padding for the banner's content */
-    margin-right:40vh; /* Minimum height for the banner */
-    margin-bottom: 4rem; /* Space between the banner and the content below it */
+    min-height: 45vh; /* Minimum height for the banner */
+    margin-bottom: 4rem; /* Space between banner and content below */
+    overflow: hidden; /* Ensures content doesn't spill out */
 
     /* Hero Background Properties */
     background:
         linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)), /* Overlay for text readability */
         url('../assets/hero-bg.jpg') no-repeat center center / cover; /* Your background image */
     color: var(--hero-text-color); /* Text color over background */
-    overflow: hidden; /* Ensures content doesn't spill out if something is too large */
 }
 
 /* Dark theme specific background for the banner if you have one */
@@ -400,7 +315,7 @@ main.home p {
     margin-bottom: 1rem;
     color: var(--hero-text-color);
     line-height: 1.2;
-    text-shadow: 2px 2px 8px;
+    text-shadow: 0 0 15px var(--text-glow-color), 0 0 25px var(--text-glow-color); /* Text glow */
 }
 
 .coming-soon-banner p {
@@ -411,31 +326,142 @@ main.home p {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* --- General Button Style (used across site) --- */
-.btn {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 18px 35px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-    border: 2px solid var(--primary-color);
+/* --- Welcome Section --- */
+.welcome-section {
+    max-width: 900px;
+    margin: 0 auto 5rem auto; /* Center and add bottom margin */
+    padding: 0 20px; /* Horizontal padding */
+    text-align: center;
 }
 
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+.welcome-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.welcome-section p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto; /* Center and add bottom margin */
+    color: var(--secondary-color);
 }
 
 .highlight {
     color: var(--highlight-color);
     font-weight: 700;
 }
+
+/* --- Features Overview Section --- */
+.features-overview-section {
+    background-color: var(--navbar-bg); /* Use navbar-bg for cards/section background */
+    padding: 5rem 20px;
+    width: 100%; /* Full width background */
+    margin-bottom: 5rem;
+    box-shadow: 0 5px 15px var(--box-shadow);
+}
+
+.features-overview-section h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.features-overview-section .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 3rem auto; /* Center grid and add margin */
+}
+
+.features-overview-section .feature-item {
+    background-color: var(--background-color); /* Lighter background for items inside section */
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.features-overview-section .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.features-overview-section .feature-item h3 {
+    font-size: 1.5rem;
+    color: var(--highlight-color);
+    margin-bottom: 15px;
+}
+
+.features-overview-section .feature-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+
+/* --- General Button Style --- */
+.btn {
+    display: inline-block;
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: 2px solid; /* Defined by specific button classes */
+    cursor: pointer;
+}
+
+.btn.primary-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.btn.primary-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.5);
+}
+
+.btn.secondary-btn {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.btn.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+/* For the hero banner button specifically */
+.coming-soon-banner .btn {
+    background-color: var(--hero-button-bg);
+    color: var(--hero-text-color);
+    border-color: var(--hero-button-bg);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5); /* A bit more pronounced */
+}
+
+.coming-soon-banner .btn:hover {
+    background-color: var(--hero-button-hover);
+    border-color: var(--hero-button-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+}
+
 
 /* --- Footer --- */
 footer {
@@ -449,361 +475,177 @@ footer {
 }
 
 
-/* --- Main Content (Other Pages: About, Contact, Token) --- */
-/* This class is used for pages that have standard content layout */
-main.content-page {
-    flex-grow: 1;
-    max-width: 900px;
-    margin: 3rem auto;
-    padding: 0 20px;
-    line-height: 1.8;
-}
-
-main.content-page h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    text-align: center;
-}
-
-main.content-page p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-
-/* --- Main Content (Features Page) --- */
-main.features-page {
-    flex-grow: 1;
-    padding: 3rem 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-main.features-page h1 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding-bottom: 3rem;
-}
-
-.feature-item {
-    background-color: var(--navbar-bg);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.feature-item h3 {
-    font-size: 1.5rem;
-    color: var(--highlight-color);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.feature-item p {
-    font-size: 1rem;
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-
-/* --- Token Page Specifics --- */
-.token-info-card {
-    background-color: var(--navbar-bg);
-    border-left: 5px solid var(--highlight-color);
-    border-radius: 8px;
-    padding: 25px 30px;
-    margin: 2rem auto 3rem auto;
-    max-width: 500px;
-    box-shadow: 0 4px 12px var(--box-shadow);
-    text-align: left;
-}
-
-.token-info-card h2 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--footer-bg);
-    padding-bottom: 10px;
-}
-
-.token-info-card p {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-    color: var(--text-color);
-}
-
-.token-info-card p strong {
-    color: var(--highlight-color);
-}
-
-.note-text {
-    font-size: 0.95rem;
-    color: var(--secondary-color);
-    font-style: italic;
-    margin-top: 2rem;
-    text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* --- Contact Page Specifics --- */
-/* Note: main.content-page is applied to contact.html main tag */
-main.content-page .intro-text {
-    text-align: center;
-    font-size: 1.15rem;
-    margin-bottom: 3rem;
-    color: var(--secondary-color);
-}
-
-.contact-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 3rem;
-}
-
-.contact-item {
-    background-color: var(--navbar-bg);
-    border-radius: 10px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 10px var(--box-shadow);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.contact-item .icon {
-    font-size: 3rem;
-    color: var(--highlight-color);
-    margin-bottom: 15px;
-}
-
-.contact-item h3 {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.contact-item p a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.contact-item p a:hover {
-    color: var(--primary-color);
-}
-
 /* --- Media Queries for Responsiveness --- */
 
 /* For screens smaller than 768px (common tablet/mobile breakpoint) */
 @media (max-width: 768px) {
-    /* Navbar media queries */
     .navbar {
-        flex-wrap: wrap;
-        justify-content: space-between;
+        min-height: 60px;
+        padding: 0.8rem 15px;
     }
+
+    /* Logo adjustment for better centering on smaller screens, if needed */
     .navbar .logo {
         height: 35px;
+        /* Re-adjust transform if height change affects visual centering */
+        /* transform: translateX(-50%); */
     }
+
+    /* Mobile Menu Links when active */
     .nav-links {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        background-color: var(--navbar-bg);
-        box-shadow: 0 5px 10px var(--box-shadow);
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        transform: translateY(-150%);
-        transition: transform 0.3s ease-in-out;
-        padding: 20px 0;
-        z-index: 999;
-    }
-    .nav-links.active {
-        transform: translateY(0);
-    }
-    .nav-links li {
-        margin: 10px 0;
+        top: 60px; /* Position below adjusted header height */
     }
     .nav-links li a {
         font-size: 1.1rem;
     }
-    .menu-toggle {
-        display: flex;
-        margin-right: 15px;
+
+    /* Theme switch adjustment for mobile */
+    .theme-switch {
+        width: 40px;
+        height: 24px;
     }
-    #themeToggle {
-        order: 1;
+    .slider:before {
+        height: 16px;
+        width: 16px;
+        left: 3px;
+        bottom: 3px;
+    }
+    input:checked + .slider:before {
+        transform: translateX(16px);
+    }
+    .slider.round {
+        border-radius: 24px;
     }
 
-    /* Homepage main.home media queries (content below banner) */
-    main.home {
-        padding: 3rem 15px; /* Adjusted padding for mobile */
-    }
-    main.home h1 {
-        font-size: 2.5rem;
-    }
-    main.home p {
-        font-size: 1rem;
-    }
-
-    /* Coming Soon Banner media queries */
+    /* Coming Soon Banner */
     .coming-soon-banner {
-        padding: 4rem 15px; /* Adjust internal padding for mobile */
-        min-height: 30vh; /* Adjust height for mobile */
-        margin-bottom: 3rem; /* Adjust space below banner for mobile */
-        width: calc(100% + 30px); /* Account for 15px left + 15px right padding of parent on mobile */
-        margin-left: -15px; /* Pull left to counteract parent's left padding on mobile */
-        margin-right: -15px; /* Pull right to counteract parent's right padding on mobile */
+        padding: 4rem 15px;
+        min-height: 35vh;
+        margin-bottom: 3rem;
     }
     .coming-soon-banner h3 {
         font-size: 2.2rem;
+        /* Ensure max-width doesn't cut off text on smaller screens */
+        max-width: 100%;
+        padding: 0 10px; /* Add slight horizontal padding to text itself */
     }
     .coming-soon-banner p {
         font-size: 1.2rem;
+        /* Ensure max-width doesn't cut off text on smaller screens */
+        max-width: 100%;
+        padding: 0 10px; /* Add slight horizontal padding to text itself */
     }
 
-    /* General button media query */
+    /* Welcome Section */
+    .welcome-section {
+        margin-bottom: 4rem;
+        padding: 0 15px;
+    }
+    .welcome-section h1 {
+        font-size: 2.5rem;
+    }
+    .welcome-section p {
+        font-size: 1rem;
+    }
+
+    /* Features Overview Section */
+    .features-overview-section {
+        padding: 4rem 15px;
+        margin-bottom: 4rem;
+    }
+    .features-overview-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .features-overview-section .features-grid {
+        grid-template-columns: 1fr; /* Ensures a single column layout */
+        gap: 20px;
+        margin-bottom: 2rem;
+    }
+    .features-overview-section .feature-item {
+        padding: 20px;
+    }
+    .features-overview-section .feature-item h3 {
+        font-size: 1.3rem;
+    }
+    .features-overview-section .feature-item p {
+        font-size: 0.95rem;
+    }
+
+    /* Buttons */
     .btn {
         padding: 15px 30px;
         font-size: 1.1rem;
     }
-
-    /* Content page media queries */
-    main.content-page {
-        margin: 2rem auto;
-        padding: 0 15px;
-    }
-    main.content-page h1 {
-        font-size: 2rem;
-        text-align: left;
-    }
-    main.content-page p {
-        font-size: 0.95rem;
-    }
-
-    /* Features page media queries */
-    main.features-page {
-        padding: 2rem 15px;
-    }
-    main.features-page h1 {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-    }
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .feature-item {
-        padding: 20px;
-    }
-    .feature-item h3 {
-        font-size: 1.3rem;
-    }
-    .feature-item p {
-        font-size: 0.95rem;
-    }
-
-    /* Token page media queries */
-    .token-info-card {
-        margin: 1.5rem 15px 2rem 15px;
-        padding: 20px 25px;
-    }
-    .token-info-card h2 {
-        font-size: 1.5rem;
-    }
-    .token-info-card p {
-        font-size: 1rem;
-    }
-    .note-text {
-        margin-top: 1.5rem;
-        padding: 0 15px;
-    }
-
-    /* Contact page media queries */
-    main.content-page .intro-text {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
-    .contact-methods {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .contact-item {
-        padding: 25px 15px;
-    }
-    .contact-item .icon {
-        font-size: 2.5rem;
-    }
-    .contact-item h3 {
-        font-size: 1.2rem;
-    }
-    .contact-item p a {
-        font-size: 0.95rem;
-    }
 }
 
-/* For even smaller screens (e.g., small phones) */
+/* For even smaller screens (e.g., small phones, typically < 480px) */
 @media (max-width: 480px) {
-    /* Homepage main.home media queries */
-    main.home h1 {
-        font-size: 2rem;
+    .navbar {
+        min-height: 55px;
+        padding: 0.6rem 10px;
     }
-    main.home p {
-        font-size: 0.9rem;
+    .navbar .logo {
+        height: 30px;
     }
 
-    /* Coming Soon Banner media queries */
+    /* Coming Soon Banner */
     .coming-soon-banner {
         padding: 3rem 10px;
-        min-height: 25vh;
-        width: calc(100% + 20px); /* Account for 10px left + 10px right padding of parent on small mobile */
-        margin-left: -10px; /* Pull left to counteract parent's left padding on small mobile */
-        margin-right: -10px; /* Pull right to counteract parent's right padding on small mobile */
+        min-height: 30vh;
+        margin-bottom: 2.5rem;
     }
     .coming-soon-banner h3 {
         font-size: 1.8rem;
+        padding: 0 5px; /* Adjust padding for very small screens */
     }
     .coming-soon-banner p {
         font-size: 1rem;
+        padding: 0 5px; /* Adjust padding for very small screens */
     }
 
-    /* Features page media queries */
-    main.features-page h1 {
+    /* Welcome Section */
+    .welcome-section {
+        margin-bottom: 3rem;
+        padding: 0 10px;
+    }
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    .welcome-section p {
+        font-size: 0.9rem;
+    }
+
+    /* Features Overview Section */
+    .features-overview-section {
+        padding: 3rem 10px;
+        margin-bottom: 3rem;
+    }
+    .features-overview-section h2 {
         font-size: 1.8rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 25px; /* Slightly smaller padding for very small buttons */
+        font-size: 1rem;
+    }
+}
+
+/* Optional: Additional small adjustments for landscape orientation on phones */
+@media (max-height: 400px) and (max-width: 900px) and (orientation: landscape) {
+    .coming-soon-banner {
+        min-height: 60vh; /* Give more height in landscape to accommodate content */
+        padding: 2rem 15px;
+    }
+    .coming-soon-banner h3 {
+        font-size: 2rem;
+    }
+    .coming-soon-banner p {
+        font-size: 1.1rem;
+    }
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }

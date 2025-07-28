@@ -1,41 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const themeToggle = document.getElementById('themeToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const navLinks = document.querySelector('.nav-links');
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement; // This refers to the <html> tag
 
-  // Theme Toggle Functionality
-  if (themeToggle) { // Check if element exists before adding listener
-    themeToggle.addEventListener('click', () => {
-      document.documentElement.dataset.theme =
-        document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-      // Optionally save the preference to localStorage
-      localStorage.setItem('theme', document.documentElement.dataset.theme);
-    });
-  }
-
-  // Load saved theme preference
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) {
-    document.documentElement.dataset.theme = savedTheme;
-  }
-
-  // Mobile Menu Toggle Functionality
-  if (mobileMenu && navLinks) { // Check if elements exist
-    mobileMenu.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-    });
-  }
-
-  // Close mobile menu when a link is clicked (optional but good UX)
-  if (navLinks) { // Check if navLinks exist
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          mobileMenu.classList.remove('active');
+    // Function to set theme based on user preference or stored value
+    function setInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            themeToggle.checked = (savedTheme === 'dark'); // Set checkbox state
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Check if user prefers dark mode system-wide
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeToggle.checked = true;
+        } else {
+            htmlElement.setAttribute('data-theme', 'light');
+            themeToggle.checked = false;
         }
-      });
-    });
-  }
+    }
+
+    // Toggle theme on click
+    if (themeToggle) {
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    // Initialize theme when page loads
+    setInitialTheme();
+
+
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobileMenu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuButton && navLinks) {
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuButton.classList.toggle('active'); // Animate hamburger
+        });
+
+        // Close menu if a link is clicked (optional, but good for UX)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuButton.classList.remove('active');
+            });
+        });
+    }
 });

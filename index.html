@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$READS | Home</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="js/script.js" defer></script>
 </head>
@@ -16,53 +17,74 @@
         <span></span>
         <span></span>
       </div>
+
       <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
-      <div class="theme-switch-wrapper"> <label class="theme-switch" for="themeToggle">
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
           <input type="checkbox" id="themeToggle" />
           <div class="slider round"></div>
         </label>
       </div>
+
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="token.html">Token</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      </nav>
+    </nav>
   </header>
-  <main class="home">
-    <h1>Welcome to <span class="highlight">$READS</span></h1>
-    <p>The educational token revolutionizing how you study, earn, and grow.</p>
-    <a href="features.html" class="btn">Explore Features</a>
 
-    <div class="coming-soon-banner">
-      <h3><span class="highlight">$READS</span> - Study to Earn Crypto App is coming soon.</h3>
-      <p> Click the button below to Join the Waitlist and be one of the first to get the news</p>
-      <a href="https://forms.gle/7ifWtKpwiN2L8Vv69" class="btn" target="_blank">
-       Click here</a>
-    </div>
-    </br>
-    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-        <h3>🏫 Our Mission</h3>
-        <p>Our mission is to create a simulating learning environment for learners to earn real value while gaining knowledge</p>
-      </div>
-      </br>
-        <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-        <h3>👀 Our Vision</h3>
-        <p>Conveniently use your earned $READS</p>
-    </div>
+  <main class="home">
+    <section class="coming-soon-banner" data-aos="fade-up">
+      <h3>$READS - Study to Earn Crypto App is coming soon.</h3>
+      <p>Click the button below to Join the Waitlist and be one of the first to get the news.</p>
+      <a href="#" class="btn" data-aos="zoom-in" data-aos-delay="300">Join Waitlist</a>
+    </section>
+
+    <section class="welcome-section">
+      <h1 data-aos="fade-right">Welcome to <span class="highlight">$READS</span></h1>
+      <p data-aos="fade-left" data-aos-delay="200">The educational token revolutionizing how you study, earn, and grow. At $READS, we believe in empowering individuals through knowledge, providing a unique platform where your learning efforts translate directly into crypto rewards.</p>
+      <a href="about.html" class="btn primary-btn" data-aos="zoom-in" data-aos-delay="400">Learn More</a>
+    </section>
+
+    <section class="features-overview-section">
+        <h2 data-aos="fade-up">Why <span class="highlight">$READS</span>?</h2>
+        <div class="features-grid">
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>Earn While You Learn</h3>
+                <p>Convert your study time into valuable crypto assets. Every lesson, quiz, and course completed earns you $READS tokens.</p>
+            </div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>Decentralized Learning</h3>
+                <p>Access a vast library of educational content across various subjects, all powered by blockchain technology for transparency.</p>
+            </div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>Community Driven</h3>
+                <p>Connect with a global community of learners and educators. Share knowledge, collaborate on projects, and grow together.</p>
+            </div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                <h3>Future of Education</h3>
+                <p>Be part of the movement that's shaping the future of education, making learning rewarding and accessible to everyone.</p>
+            </div>
+        </div>
+        <a href="features.html" class="btn secondary-btn" data-aos="zoom-in" data-aos-delay="500">Discover All Features</a>
+    </section>
   </main>
-</br>
+
   <footer>
- <p>&copy; 2025 $READS TECHNOLOGIES</br>
-    All rights reserved.</br>
-    <b>$READS... Empowering You To Study Smart</b></p>
+    <p>&copy; 2025 $READS. All rights reserved.</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    AOS.init({
+      duration: 800,
+      once: true, // Animations only once
+      mirror: false, // Animations repeat on scroll up
+    });
   </script>
 </body>
 </html>
