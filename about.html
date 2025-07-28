@@ -5,44 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | $READS</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li> <li><a href="features.html">Features</a></li>
-        <li><a href="token.html">Token</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
       <div class="menu-toggle" id="mobileMenu">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <button id="themeToggle">🌙</button>
+
+      <img src="assets/reads-logo.png" alt="$READS Logo" class="logo" />
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="themeToggle">
+          <input type="checkbox" id="themeToggle" />
+          <div class="slider round"></div>
+        </label>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="token.html">Token</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <main class="content-page"> <h1>About <span class="highlight">$READS</span></h1>
-    <p>
-      $READS is an educational cryptocurrency token designed to revolutionize how people study and earn.
-      Built for the modern learner, $READS rewards students for reading educational content, taking tests, and preparing for national and international exams.
-    </p>
-    <p>
-      Our mission is to promote academic excellence by integrating blockchain technology with an engaging Learn-to-Earn model that’s accessible to everyone.
-    </p>
-    <p>
-      With $READS, education becomes both enriching and rewarding.
-    </p>
+  <main class="content-page">
+    <h1 data-aos="fade-up">About <span class="highlight">$READS</span></h1>
+
+    <section class="about-section">
+      <p data-aos="fade-up" data-aos-delay="100">
+        $READS is an educational cryptocurrency token designed to revolutionize how people study and earn.
+        Built for the modern learner, $READS rewards students for reading educational content, taking tests, and preparing for national and international exams.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Our mission is to promote academic excellence by integrating blockchain technology with an engaging Learn-to-Earn model that’s accessible to everyone.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="300">
+        With $READS, education becomes both enriching and rewarding.
+      </p>
+    </section>
+
+    <section class="about-section vision-section">
+        <h2 data-aos="fade-right">Our Vision & Mission</h2>
+        <p data-aos="fade-left" data-aos-delay="100">
+            At $READS, we envision a future where education is not just a path to knowledge but also a direct avenue to economic empowerment. We believe that everyone, regardless of their background, should have the opportunity to access high-quality educational resources and be rewarded for their dedication to learning.
+        </p>
+        <p data-aos="fade-left" data-aos-delay="200">
+            Our mission is to build a decentralized ecosystem that bridges the gap between learning and earning, fostering a global community of motivated individuals who can leverage their intellectual growth into tangible value.
+        </p>
+    </section>
+
+    <section class="about-section how-it-works-brief">
+        <h2 data-aos="fade-up">How It Works (Briefly)</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+            The $READS platform is designed around a simple yet powerful principle: **your effort in learning translates into crypto rewards.** Users engage with curated educational content, participate in interactive quizzes, and take practice exams. Upon successful completion and demonstration of knowledge, $READS tokens are distributed directly to their wallets.
+        </p>
+        <p data-aos="fade-up" data-aos-delay="200">
+            This innovative approach ensures that learners are directly incentivized, making education more engaging and financially beneficial than ever before.
+        </p>
+        <a href="features.html" class="btn primary-btn" data-aos="zoom-in" data-aos-delay="300">Explore Features</a>
+    </section>
+
+    <section class="about-section impact-section">
+        <h2 data-aos="fade-right">Impact & Community</h2>
+        <div class="impact-grid">
+            <div class="impact-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>Global Accessibility</h3>
+                <p>Breaking down barriers to quality education, making it accessible to anyone with an internet connection, anywhere in the world.</p>
+            </div>
+            <div class="impact-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>Economic Empowerment</h3>
+                <p>Providing a new pathway for individuals to earn income and build wealth through the acquisition of knowledge and skills.</p>
+            </div>
+            <div class="impact-item" data-aos="fade-up" data-aos-delay="300">
+                <h3>Vibrant Community</h3>
+                <p>Fostering a supportive and collaborative global community of learners, educators, and blockchain enthusiasts.</p>
+            </div>
+        </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2025 $READS TECHNOLOGIES</br>
-    All rights reserved.</br>
+    <p>&copy; 2025 $READS. All rights reserved.</br>
     <b>$READS... Empowering You To Study Smart</b></p>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true, // Animations only once
+      mirror: false, // Animations repeat on scroll up
+    });
+  </script>
 </body>
 </html>
