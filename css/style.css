@@ -283,7 +283,6 @@ main.home {
     /* Full-width behavior - relies on main.home having no horizontal padding */
     width: 100vw; /* Use 100vw for full viewport width */
     position: relative;
-    left: 50%;
     transform: translateX(-50%); /* Center it after 100vw */
 
     display: flex;
