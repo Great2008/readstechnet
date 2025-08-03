@@ -1564,4 +1564,137 @@ footer {
         text-align: center;
         align-items: center;
     }
+}/* --- Partners Page Specific Styling --- */
+
+/* Partners Intro Section */
+.partners-intro-section {
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.partners-intro-section p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Partner Form Section */
+.partner-form-section {
+    margin-bottom: 5rem;
+}
+
+.partner-form-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.partner-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--navbar-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--box-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.partner-form .form-group {
+    margin-bottom: 20px;
+}
+
+.partner-form .form-group label {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.partner-form .form-group input,
+.partner-form .form-group select,
+.partner-form .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-form .form-group input:focus,
+.partner-form .form-group select:focus,
+.partner-form .form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.partner-form .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.partner-form .btn {
+    width: auto;
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+/* --- Media Queries for Partners Page --- */
+@media (max-width: 768px) {
+    .partners-intro-section {
+        margin-bottom: 2.5rem;
+    }
+    .partners-intro-section p {
+        font-size: 1rem;
+    }
+
+    .partner-form-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .partner-form {
+        padding: 25px;
+    }
+
+    .partner-form .form-group label {
+        font-size: 1rem;
+    }
+    .partner-form .form-group input,
+    .partner-form .form-group select,
+    .partner-form .form-group textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    .partner-form .form-group textarea {
+        min-height: 100px;
+    }
+
+    .partner-form .btn {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        margin: 25px auto 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .partner-form-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .partner-form {
+        padding: 20px;
+    }
 }

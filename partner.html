@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Disclaimer | $READS</title>
+  <title>Partnerships | $READS</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,37 +33,55 @@
         <li><a href="about.html">About</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="token.html">Token</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="content-page">
-    <h2 data-aos="fade-up">Platform <span class="highlight">Disclaimer</span></h2>
-    <section class="policy-content" data-aos="fade-up" data-aos-delay="100">
-        <p>The information provided on the $READS website, mobile application, and related services is for general informational purposes only. All information on the Service is provided in good faith; however, we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information.</p>
+    <h1 data-aos="fade-up">Become a <span class="highlight">Partner</span></h1>
+    <section class="partners-intro-section">
+      <p data-aos="fade-up" data-aos-delay="100">
+        $READS is building a robust ecosystem to empower students and educators. We are actively seeking partnerships with schools, universities, content creators, and exam boards. Join us in our mission to make quality education profitable and accessible.
+      </p>
+    </section>
 
-        <h3>1. Cryptocurrency Risk</h3>
-        <p>The `$READS` token is a utility token designed for use within the $READS ecosystem. It is not an investment and should not be treated as such. The value of cryptocurrencies can be highly volatile and unpredictable. You should not purchase `$READS` tokens with the expectation of making a profit.</p>
-        <p>The purchase and use of cryptocurrencies involve a high degree of risk. You should carefully consider whether participating in the $READS ecosystem is suitable for you in light of your personal financial circumstances. We are not responsible for any financial losses or damages you may incur from using the token.</p>
-
-        <h3>2. No Financial Advice</h3>
-        <p>The content on this Service is not and should not be considered financial, investment, or legal advice. Any information provided is for educational and informational purposes only. We strongly recommend that you seek independent professional advice before making any financial decisions related to cryptocurrencies.</p>
-
-        <h3>3. External Links Disclaimer</h3>
-        <p>The Service may contain links to third-party websites or content. We do not endorse, guarantee, or assume responsibility for the accuracy or reliability of any information offered by third-party websites linked through the Service or featured in any banner or other advertising.</p>
-
-        <h3>4. Educational Content</h3>
-        <p>The educational content provided on the platform is for learning purposes. While we strive for accuracy, we cannot guarantee that all content is free from errors. This content should be used as a supplementary resource and not as a replacement for formal education.</p>
-
-        <h3>5. Contact Us</h3>
-        <p>For any questions regarding this Disclaimer, please contact us at <a href="mailto:support@reads.com">support@reads.com</a> or through our <a href="contact.html">Contact page</a>.</p>
-
-        <p class="policy-date">Last updated: 31 July 2025</p>
+    <section class="partner-form-section">
+        <h2 data-aos="fade-right">Partnership Application Form</h2>
+        <form action="https://formspree.io/f/mblkyqyr" method="POST" class="partner-form" data-aos="fade-up" data-aos-delay="100">
+            <div class="form-group">
+                <label for="organizationName">Organization/Company Name:</label>
+                <input type="text" id="organizationName" name="organizationName" required>
+            </div>
+            <div class="form-group">
+                <label for="contactPerson">Contact Person's Name:</label>
+                <input type="text" id="contactPerson" name="contactPerson" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="partnershipType">Type of Partnership:</label>
+                <select id="partnershipType" name="partnershipType" required>
+                    <option value="">-- Select --</option>
+                    <option value="school">School/University</option>
+                    <option value="contentCreator">Content Creator</option>
+                    <option value="examBoard">Exam Board</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">How can we partner with you?</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn primary-btn">Submit Application</button>
+        </form>
     </section>
   </main>
 
-<footer>
+ <footer>
   <div class="footer-container">
     <div class="footer-section">
       <img src="assets/reads-logo.png" alt="$READS Logo" class="footer-logo">
