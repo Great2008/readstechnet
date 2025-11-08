@@ -1762,3 +1762,53 @@ footer {
         text-align: center;
     }
 }
+/* --- Card Component Style --- */
+.card {
+  background: var(--card-bg);                  /* adapts to light/dark theme */
+  border-radius: 12px;                        /* soft rounded edges */
+  padding: 25px 30px;                         /* inner spacing */
+  box-shadow: 0 6px 20px var(--box-shadow);   /* subtle floating shadow */
+  transition: transform 0.25s ease, 
+              box-shadow 0.25s ease;          /* smooth hover animation */
+}
+
+/* Hover lift effect */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Optional heading inside card */
+.card h3 {
+  color: var(--highlight-color);
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+/* Paragraph text inside card */
+.card p {
+  color: var(--text-color);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* --- Card Grid Layout (if displaying multiple cards) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  .card p {
+    font-size: 0.95rem;
+  }
+}
