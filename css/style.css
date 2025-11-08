@@ -1698,3 +1698,67 @@ footer {
         padding: 20px;
     }
 }
+/* --- Additional Styling for Updated Features Page (AI Tutor & Analytics) --- */
+
+/* Distinct card visuals for AI-related features */
+.feature-item.ai-feature {
+    background: linear-gradient(145deg, var(--navbar-bg), var(--background-color));
+    border-left: 5px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle animated glow on hover */
+.feature-item.ai-feature:hover {
+    box-shadow: 0 0 25px rgba(0, 123, 255, 0.2);
+}
+
+/* Optional icon enhancement (emoji or custom icon) */
+.feature-item.ai-feature h3::before {
+    content: "🤖 ";
+}
+
+/* AI Analytics style variant */
+.feature-item.ai-analytics {
+    border-left: 5px solid var(--highlight-color);
+    background: linear-gradient(145deg, var(--navbar-bg), var(--background-color));
+}
+
+.feature-item.ai-analytics h3::before {
+    content: "📈 ";
+}
+
+/* Smooth entry animation for AI cards */
+@keyframes fadeUpSoft {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feature-item.ai-feature,
+.feature-item.ai-analytics {
+    animation: fadeUpSoft 0.6s ease forwards;
+}
+
+/* Adjust text spacing and alignment for new cards */
+.feature-item.ai-feature p,
+.feature-item.ai-analytics p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--secondary-color);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .feature-item.ai-feature,
+    .feature-item.ai-analytics {
+        border-left: none;
+        border-top: 4px solid var(--primary-color);
+        text-align: center;
+    }
+}
