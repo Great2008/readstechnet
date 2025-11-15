@@ -1,0 +1,9 @@
+{
+  "name": "reads-contact-form-serverless",
+  "version": "1.0.0",
+  "description": "Serverless function dependencies for Vercel contact form.",
+  "main": "api/contact.js",
+  "dependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}
