@@ -173,7 +173,8 @@ class ReadsFooter extends HTMLElement {
       <h4>Legal</h4>
       <ul>
         <li><a href="${prefix}privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="${prefix}terms-of-service.html">Terms of Service</a></li>
+        <li><a href="${prefix}terms-of-service.html">Terms &amp; Conditions</a></li>
+        <li><a href="${prefix}learner-terms.html">Learner Terms &amp; Conditions</a></li>
         <li><a href="${prefix}disclaimer.html">Disclaimer</a></li>
       </ul>
     </div>

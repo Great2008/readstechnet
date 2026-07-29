@@ -34,7 +34,9 @@ readstechnet/
 ├── sitemap.xml         # XML sitemap for Google
 ├── robots.txt          # Crawler instructions
 ├── privacy-policy.html
-├── terms-of-service.html
+├── terms-of-service.html   # Terms & Conditions (Tutors, Tutorial Centres, Schools, Exam Centres)
+├── learner-terms.html      # Learner Terms & Conditions
+├── tournament-rules.html   # Smart User Challenge — Tournament Terms & Rules
 ├── disclaimer.html
 ├── css/
 │   └── style.css       # All styles
